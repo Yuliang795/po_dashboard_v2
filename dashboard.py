@@ -9,9 +9,12 @@ from st_aggrid import AgGrid,GridOptionsBuilder,ColumnsAutoSizeMode
 from utils import *
 st.set_page_config(layout="wide")
 
-main_df_path='main_df.csv'
+main_df_path='main_df_opt.csv'
+# main_df_path='main_df_opt_sat.csv'
 verify_df_path = 'verify_df.csv'
-p2_sp_df_path='2p_smt_s1732_2352_3556_r1.csv'
+# p2_sp_df_path='2p_smt_s1732_2352_3556_r1.csv'
+p2_sp_df_path='2p_smt_s1732_2352_3556_r1_opt.csv'
+# p2_sp_df_path='2p_smt_s1732_2352_3556_r1_opt_sat.csv'
 main_df = get_df_cash(main_df_path)
 verify_df = get_df_cash(verify_df_path)
 p2_sp = get_df_cash(p2_sp_df_path)
