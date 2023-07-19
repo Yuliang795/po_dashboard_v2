@@ -29,7 +29,7 @@ def po_line_2p(main_df, verify_df, target_data, target_seed, p2_sp=None):
     ## add 2p
     #
     if p2_sp is not None:
-      print(f"********************** {p2_sp is not None}   ----------- {p2_sp.shape}")
+      # print(f"********************** {p2_sp is not None}   ----------- {p2_sp.shape}")
       curr_2pdf = query_main_verify_df(p2_sp,target_data, target_seed, target_kappa=kappa_set[ax_ind])
       ax.scatter(curr_2pdf['lambda_minus'], curr_2pdf['lambda_plus'], marker='+', color='black',zorder=15,s=100, label='2p')
 
@@ -109,9 +109,9 @@ def ari_po_2p(main_df,p2_sp,target_data,target_seed):
   tmp_p2_group_ari = groupby_df_ari(p2_sp, target_data, target_seed)
 
   fig, ax = plt.subplots()
-  po_avg_ari, = ax.plot(tmp_maindf_group_ari['kappa'], tmp_maindf_group_ari['ARI_avg'],  color='darkblue', label='po_avg_ari',zorder=10)
-  po_min_ari, = ax.plot(tmp_maindf_group_ari['kappa'], tmp_maindf_group_ari['ARI_min'], linestyle='--',dashes=(3, 3),color='lightsteelblue', label='po_min_ari',zorder=15)
-  po_max_ari, = ax.plot(tmp_maindf_group_ari['kappa'], tmp_maindf_group_ari['ARI_max'], linestyle='--',dashes=(3, 3),color='lightsteelblue', label='po_max_ari',zorder=15)
+  po_avg_ari, = ax.plot(tmp_maindf_group_ari['kappa'], tmp_maindf_group_ari['ARI_avg'],  marker='o',color='darkblue', markerfacecolor='none', markeredgecolor='blue', label='po_avg_ari',zorder=10)
+  po_min_ari, = ax.plot(tmp_maindf_group_ari['kappa'], tmp_maindf_group_ari['ARI_min'], linestyle='--',marker='.',markersize=5,dashes=(3, 3),color='lightsteelblue',alpha=0.7, label='po_min_ari',zorder=15)
+  po_max_ari, = ax.plot(tmp_maindf_group_ari['kappa'], tmp_maindf_group_ari['ARI_max'], linestyle='--',marker='.',markersize=5,dashes=(3, 3),color='lightsteelblue', label='po_max_ari',zorder=15)
   # add count of pareto optimal solution
   # add number of pareto optimal solution count
   pareto_sol_count_df = pareto_sol_count(main_df,target_data,target_seed)
@@ -119,10 +119,10 @@ def ari_po_2p(main_df,p2_sp,target_data,target_seed):
     ax.text(tmp_maindf_group_ari.loc[ind, 'kappa'],
     tmp_maindf_group_ari.loc[ind,'ARI_avg'],
     f'{round(pareto_sol_count_df.loc[ind, "pareto_index"],1)}',
-    ha='center', va='bottom')
+    ha='center', va='bottom', zorder=20)
   
   # 2p sp avg
-  p2_sp_avg, = ax.plot(tmp_p2_group_ari['kappa'], tmp_p2_group_ari['ARI_avg'],color='darkred', label='2p_avg')
+  p2_sp_avg, = ax.plot(tmp_p2_group_ari['kappa'], tmp_p2_group_ari['ARI_avg'],color='darkred', marker='+',markeredgecolor='black', markerfacecolor='black',label='2p_avg')
 
   # Set the legend with different styles for each line
   ax.legend(handles=[po_avg_ari, po_max_ari,p2_sp_avg],
@@ -168,10 +168,10 @@ def po_sum_time_2p(main_df, p2_sp,target_data,target_seed ):
   tmp_p2_group_ari = groupby_df_general_vertical(p2_sp,col_to_agg='total_slvr_time', target_data=target_data, target_seed=target_seed)
 
   fig, ax = plt.subplots()
-  po_avg_ari, = ax.plot(tmp_maindf_group_ari['kappa'], tmp_maindf_group_ari['total_slvr_time_sum'], color='darkblue', label='po_avg_ari')
+  po_avg_ari, = ax.plot(tmp_maindf_group_ari['kappa'], tmp_maindf_group_ari['total_slvr_time_sum'], color='darkblue', marker='o', markerfacecolor='none', markeredgecolor='blue', label='po_avg_ari')
 
   # 2p sp avg
-  p2_sp_avg, = ax.plot(tmp_p2_group_ari['kappa'], tmp_p2_group_ari['total_slvr_time_avg'],color='darkred', label='2p_avg')
+  p2_sp_avg, = ax.plot(tmp_p2_group_ari['kappa'], tmp_p2_group_ari['total_slvr_time_avg'],color='darkred',marker='+', markeredgecolor='black', label='2p_avg')
 
   # Set the legend with different styles for each line
   ax.legend(handles=[po_avg_ari,p2_sp_avg],
@@ -195,12 +195,12 @@ def po_MinMax_obj_2p(main_df, p2_sp,target_data,target_seed):
     tmp_p2_group_obj = groupby_df_general_horrizontal(p2_sp,col_to_agg='obj_value', target_data=target_data, target_seed=target_seed)
     #
     fig, ax = plt.subplots()
-    po_avg_obj, = ax.plot(tmp_maindf_group_obj['kappa'], tmp_maindf_group_obj['obj_value_avg'], color='darkblue', label='po_avg')
-    po_min_obj, = ax.plot(tmp_maindf_group_obj['kappa'], tmp_maindf_group_obj['obj_value_min'], linestyle='--',dashes=(3, 3),color='lightsteelblue', label='po_min_obj',zorder=15)
-    po_max_obj, = ax.plot(tmp_maindf_group_obj['kappa'], tmp_maindf_group_obj['obj_value_max'], linestyle='--',dashes=(3, 3),color='lightsteelblue', label='po_max_obj',zorder=15)
+    po_avg_obj, = ax.plot(tmp_maindf_group_obj['kappa'], tmp_maindf_group_obj['obj_value_avg'], color='darkblue',marker='o', markerfacecolor='none', markeredgecolor='blue',  label='po_avg')
+    po_min_obj, = ax.plot(tmp_maindf_group_obj['kappa'], tmp_maindf_group_obj['obj_value_min'], linestyle='--',dashes=(3, 3),color='lightsteelblue',marker='.',markersize=5, label='po_min_obj',zorder=15)
+    po_max_obj, = ax.plot(tmp_maindf_group_obj['kappa'], tmp_maindf_group_obj['obj_value_max'], linestyle='--',dashes=(3, 3),color='lightsteelblue', marker='.',markersize=5, label='po_max_obj',zorder=15)
 
     # 2p sp avg
-    p2_sp_avg, = ax.plot(tmp_p2_group_obj['kappa'], tmp_p2_group_obj['obj_value_avg'],color='darkred', label='2p_avg')
+    p2_sp_avg, = ax.plot(tmp_p2_group_obj['kappa'], tmp_p2_group_obj['obj_value_avg'],color='darkred', marker='+',markeredgecolor='black', markerfacecolor='black', markersize=7,label='2p_avg')
 
     # Set the legend with different styles for each line
     ax.legend(handles=[po_avg_obj,po_min_obj,p2_sp_avg],

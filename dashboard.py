@@ -44,9 +44,10 @@ st.write('#')
 
 # f1_plot_tab, f1_df_tab = st.tabs(["visual", "pivot table"])
 ### --- Plot the ARI vs. Kappa plot
-st.subheader("Pareto OptimalARI vs. Kappa plot")
-p1_container = st.container()
+st.subheader("[Pareto Optimal] ARI, objective value, and pareto optimal front line plot")
+st.write(r"$\text{obj value} = \lambda^- - \lambda^+$")
 
+p1_container = st.container()
 
 
 with p1_container:
@@ -90,14 +91,15 @@ with p1_container:
 ### --- Plot the pareto optimal line
 st.markdown('#')
 st.markdown('--')
-st.subheader("Pareto Optimal obj value vs. Kappa")
-st.write(r"$\text{object value} = \lambda^- - \lambda^+$")
+st.subheader("[Pareto Optimal] solver time")
 p3_container = st.container()
 with p3_container:
     p3_col1,p3_col2,p3_col3 = st.columns([1,3,2])
     with p3_col1:
         p3_data_slct = st.radio("data", data_set, key="data_slct_p3", horizontal=True)
         p3_seed_slct = st.radio("seed", seed_set, key="seed_slct_p3", horizontal=True)
+        p3_data_slct=p3_data_slct if p3_data_slct!='all' else None
+        p3_seed_slct=p3_seed_slct if p3_seed_slct!='all' else None
     with p3_col2:
         po_sum_time_2p(main_df, p2_sp,target_data=p3_data_slct, target_seed=p3_seed_slct)
         
