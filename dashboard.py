@@ -71,18 +71,18 @@ with p1_container:
 
 
 ### --- Plot the pareto optimal line
-st.markdown('#')
-st.markdown('--')
-st.subheader("Pareto Optimal line")
-container = st.container()
-with container:
-    col1,col2,col3 = st.columns([1,3,1])
-    with col1:
-        p2_data_slct = st.radio("data", data_set[:-1], key="data_slct_p2", horizontal=True)
-        p2_seed_slct = st.radio("seed", seed_set[:-1], key="seed_slct_p2", horizontal=True)
-    with col2:
-        po_line_2p(main_df,verify_df, target_data=p2_data_slct, target_seed=p2_seed_slct, p2_sp=p2_sp)
-        st.write('figure (2)')
+# st.markdown('#')
+# st.markdown('--')
+# st.subheader("Pareto Optimal line")
+# container = st.container()
+# with container:
+#     col1,col2,col3 = st.columns([1,3,1])
+#     with col1:
+#         p2_data_slct = st.radio("data", data_set[:-1], key="data_slct_p2", horizontal=True)
+#         p2_seed_slct = st.radio("seed", seed_set[:-1], key="seed_slct_p2", horizontal=True)
+#     with col2:
+#         po_line_2p(main_df,verify_df, target_data=p2_data_slct, target_seed=p2_seed_slct, p2_sp=p2_sp)
+#         st.write('figure (2)')
 
 ### --- Plot the pareto optimal line
 st.markdown('#')
