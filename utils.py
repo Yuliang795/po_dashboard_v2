@@ -26,6 +26,14 @@ def po_line_2p(main_df, verify_df, target_data, target_seed, p2_sp=None):
     ax.scatter(curr_maindf['lm_lambda_minus'], curr_maindf['lm_lambda_plus'], label=f'opt_lambda_minus',marker='x', color='darkorange', zorder=5)
     ax.scatter(curr_verify_lm['p2_lm_b0'], curr_verify_lm['p2_lm_b1'], label=f'MinLm', marker='>', color='g',zorder=5)
     ax.scatter(curr_verify_lp['p2_lp_b0'], curr_verify_lp['p2_lp_b1'], label=f'MaxLp',marker='v', color='r',zorder=5)
+    # add complete indicator
+    # print(f" 1--- {curr_maindf[['data','seed','kappa','pareto_complete']]}")
+    # print(main_df.columns)
+    if len(curr_maindf)>0 and  curr_maindf.iloc[0]['pareto_complete']==1:
+      ax.spines['left'].set_color('green')
+      ax.spines['right'].set_color('green')
+      ax.spines['bottom'].set_color('green')
+      ax.spines['top'].set_color('green')
     ## add 2p
     #
     if p2_sp is not None:
