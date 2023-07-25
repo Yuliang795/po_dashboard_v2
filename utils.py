@@ -11,7 +11,7 @@ def query_main_verify_df(df, target_data, target_seed, target_kappa):
           &(df['seed']==target_seed)\
           &(df['kappa']==target_kappa)].copy()
 
-def po_line_2p(main_df, verify_df, target_data, target_seed, p2_sp=None):
+def po_line_2p(main_df, verify_df, target_data, target_seed, p2_sp=None, nonopt_step=None):
   kappa_set=np.sort(main_df['kappa'].unique()).tolist()
   # create fig
   fig, axs = plt.subplots(3, 3, figsize=(10, 10))
@@ -26,6 +26,13 @@ def po_line_2p(main_df, verify_df, target_data, target_seed, p2_sp=None):
     ax.scatter(curr_maindf['lm_lambda_minus'], curr_maindf['lm_lambda_plus'], label=f'opt_lambda_minus',marker='x', color='darkorange', zorder=5)
     ax.scatter(curr_verify_lm['p2_lm_b0'], curr_verify_lm['p2_lm_b1'], label=f'MinLm', marker='>', color='g',zorder=5)
     ax.scatter(curr_verify_lp['p2_lp_b0'], curr_verify_lp['p2_lp_b1'], label=f'MaxLp',marker='v', color='r',zorder=5)
+    # highlight the last optimal solution
+    try:
+      last_optimal_sol_lm,last_optimal_sol_lp  = curr_maindf.loc[curr_maindf['pareto_index'].idxmax()][['lp_lambda_minus', 'lp_lambda_plus']]
+      ax.scatter(last_optimal_sol_lm,last_optimal_sol_lp, label=f'last_optimal_step', marker='s',s=200, facecolors='none', edgecolors='#FFD700', zorder=20)
+    except:
+      pass
+
     # add complete indicator
     # print(f" 1--- {curr_maindf[['data','seed','kappa','pareto_complete']]}")
     # print(main_df.columns)
@@ -49,8 +56,18 @@ def po_line_2p(main_df, verify_df, target_data, target_seed, p2_sp=None):
     if y_padding>0:
       ax.set_ylim(lp_min - y_padding, lp_max + y_padding)
 
-    # Set labels and title for each subplot
-    ax.set_title(f'kappa={kappa_set[ax_ind]}', fontsize=8)
+    # Set labels and title for each subplot 
+    if nonopt_step is not None:
+      # try:
+        curr_nonopt_step = query_main_verify_df(nonopt_step,target_data, target_seed, target_kappa=kappa_set[ax_ind])
+        # print(curr_nonopt_step.iloc[0][['p2_lm_slvr_status', 'p2_lp_slvr_status']])
+        p2_lm_slvr_status, p2_lp_slvr_status = curr_nonopt_step.iloc[0][['p2_lm_slvr_status', 'p2_lp_slvr_status']]
+        nonopt_step_msg = [f'lm: {p2_lm_slvr_status}', f'lp: {p2_lp_slvr_status}'][p2_lm_slvr_status=='OPTIMUM']
+        ax.set_title(f'kappa={kappa_set[ax_ind]} | non-opt: {nonopt_step_msg}', fontsize=8)
+      # except:
+      #   ax.set_title(f'kappa={kappa_set[ax_ind]}', fontsize=8)
+    else:
+      ax.set_title(f'kappa={kappa_set[ax_ind]}', fontsize=8)
 
   # add label
   for xlab_ind in [6,7,8]:

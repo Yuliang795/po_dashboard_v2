@@ -1,0 +1,115 @@
+<mxfile host="app.diagrams.net" modified="2023-07-25T16:37:59.312Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="esnD2z-fjZZ2jE4pTm31" version="21.6.3" type="device">
+  <diagram name="Page-1" id="3IAFWtAfXeHGkpke3xqE">
+    <mxGraphModel dx="1296" dy="655" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3000" pageHeight="3000" math="1" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="kD_08o5BdSotSlaiahMT-12" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="470" y="1040" width="670" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="kD_08o5BdSotSlaiahMT-11" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="470" y="810" width="670" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="kD_08o5BdSotSlaiahMT-2" value="optimize \(ml_{0}\) based on&amp;nbsp; \(\hat{cl_{0}}\)" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="860" y="840" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="kD_08o5BdSotSlaiahMT-4" value="$$\hat{ml_{0}}$$" style="whiteSpace=wrap;html=1;aspect=fixed;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="820" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="kD_08o5BdSotSlaiahMT-5" value="$$optimize\ cl_{0}$$" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="500" y="840" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="kD_08o5BdSotSlaiahMT-6" value="$$\hat{cl_{0}}$$" style="whiteSpace=wrap;html=1;aspect=fixed;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="670" y="820" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="kD_08o5BdSotSlaiahMT-7" value="optimize \(cl_{1}&lt;br style=&quot;font-size: 15px;&quot;&gt;\) and enforce \(ml_{1}&amp;gt;\hat{ml_{0}}&lt;br style=&quot;font-size: 15px;&quot;&gt;\)" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="490" y="1070" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="kD_08o5BdSotSlaiahMT-8" value="$$\hat{cl_{1}}$$" style="whiteSpace=wrap;html=1;aspect=fixed;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="660" y="1050" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="kD_08o5BdSotSlaiahMT-9" value="optimize \(ml_{1}\) based on&amp;nbsp; \(\hat{cl_{1}}\)" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="860" y="1070" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="kD_08o5BdSotSlaiahMT-10" value="$$\hat{ml_{1}}$$" style="whiteSpace=wrap;html=1;aspect=fixed;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="1050" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="kD_08o5BdSotSlaiahMT-14" value="" style="endArrow=classic;html=1;rounded=0;fontSize=15;" edge="1" parent="1" source="kD_08o5BdSotSlaiahMT-11">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="670" y="910" as="sourcePoint" />
+            <mxPoint x="780" y="930" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kD_08o5BdSotSlaiahMT-18" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=15;" edge="1" parent="1" source="kD_08o5BdSotSlaiahMT-5" target="kD_08o5BdSotSlaiahMT-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="810" y="1030" as="sourcePoint" />
+            <mxPoint x="860" y="980" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kD_08o5BdSotSlaiahMT-23" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=15;" edge="1" parent="1" source="kD_08o5BdSotSlaiahMT-7" target="kD_08o5BdSotSlaiahMT-9">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="800" y="1060" as="sourcePoint" />
+            <mxPoint x="850" y="1010" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kD_08o5BdSotSlaiahMT-24" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=15;" edge="1" parent="1" source="kD_08o5BdSotSlaiahMT-11" target="kD_08o5BdSotSlaiahMT-12">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="810" y="1030" as="sourcePoint" />
+            <mxPoint x="860" y="980" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kD_08o5BdSotSlaiahMT-25" value="$$\hat{ml_{0}}$$" style="whiteSpace=wrap;html=1;aspect=fixed;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="810" y="940" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="kD_08o5BdSotSlaiahMT-26" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="470" y="1270" width="670" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="kD_08o5BdSotSlaiahMT-27" value="optimize \(cl_{n}&lt;br style=&quot;font-size: 15px;&quot;&gt;\) and enforce \(ml_{n}&amp;gt;\hat{ml_{n-1}}&lt;br style=&quot;font-size: 15px;&quot;&gt;\)" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="490" y="1300" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="kD_08o5BdSotSlaiahMT-28" value="$$\hat{cl_{n}}$$" style="whiteSpace=wrap;html=1;aspect=fixed;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="660" y="1280" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="kD_08o5BdSotSlaiahMT-29" value="optimize \(ml_{n}\) based on&amp;nbsp; \(\hat{cl_{n}}\)" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="850" y="1300" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="kD_08o5BdSotSlaiahMT-30" value="$$\hat{ml_{n}}$$" style="whiteSpace=wrap;html=1;aspect=fixed;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="1280" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="kD_08o5BdSotSlaiahMT-31" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=15;" edge="1" parent="1" source="kD_08o5BdSotSlaiahMT-27" target="kD_08o5BdSotSlaiahMT-29">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="800" y="1290" as="sourcePoint" />
+            <mxPoint x="850" y="1240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kD_08o5BdSotSlaiahMT-32" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;fontSize=15;" edge="1" parent="1" source="kD_08o5BdSotSlaiahMT-12" target="kD_08o5BdSotSlaiahMT-26">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="810" y="1230" as="sourcePoint" />
+            <mxPoint x="860" y="1180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kD_08o5BdSotSlaiahMT-33" value="$$\hat{ml_{1}}$$" style="whiteSpace=wrap;html=1;aspect=fixed;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="810" y="1170" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="kD_08o5BdSotSlaiahMT-35" value="A list of satisfied ml literal index" style="rounded=1;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="1180" y="750" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="kD_08o5BdSotSlaiahMT-36" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="kD_08o5BdSotSlaiahMT-35" target="kD_08o5BdSotSlaiahMT-4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="900" y="1050" as="sourcePoint" />
+            <mxPoint x="1230" y="870" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kD_08o5BdSotSlaiahMT-37" value="Consider satisfied ML as hard constraints and force the solver to address at least one more unsatisfied ML" style="rounded=1;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="210" y="950" width="210" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="kD_08o5BdSotSlaiahMT-38" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="kD_08o5BdSotSlaiahMT-37" target="kD_08o5BdSotSlaiahMT-7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="730" y="1070" as="sourcePoint" />
+            <mxPoint x="780" y="1020" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

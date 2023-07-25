@@ -12,12 +12,14 @@ st.set_page_config(layout="wide")
 main_df_path='main_df_opt.csv'
 # main_df_path='main_df_opt_sat.csv'
 verify_df_path = 'verify_df.csv'
+nonopt_step_path = 'unopt_step_df.csv'
 # p2_sp_df_path='2p_smt_s1732_2352_3556_r1.csv'
 p2_sp_df_path='2p_smt_s1732_2352_3556_r1_opt.csv'
 # p2_sp_df_path='2p_smt_s1732_2352_3556_r1_opt_sat.csv'
 main_df = get_df_cash(main_df_path)
 verify_df = get_df_cash(verify_df_path)
 p2_sp = get_df_cash(p2_sp_df_path)
+nonopt_step = get_df_cash(nonopt_step_path)
 # verify_df = pd.read_csv('verify_df.csv')
 # p2_sp = pd.read_csv('2p_smt_s1732_2352_3556.csv')
 # p2_sp = p2_sp[p2_sp['cl_ml_ratio']==1]
@@ -65,7 +67,7 @@ with p1_container:
         st.write('figure (1-c)')
     with p1_col3:
         if data_slct!=None and seed_slct!=None:
-            po_line_2p(main_df,verify_df, target_data=data_slct, target_seed=seed_slct, p2_sp=p2_sp)
+            po_line_2p(main_df,verify_df, target_data=data_slct, target_seed=seed_slct, p2_sp=p2_sp, nonopt_step=nonopt_step)
             st.write('figure (1-b)')
         else:
             st.write('figure (1-b) pareto optimal line requires specific data and seed')
